@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--    {% for order in orders_list%}-->
+<!--      <div class="col-sm  ">-->
+<!--      <div class="card m-3" style="width: 18rem;">-->
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">Order</h5>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted">Owner {{order["id"]}}</h6>-->
+<!--            {%for x in order["products"] %}-->
+<!--                <p class="card-text">Item: {{x["product"]}} * {{x["quantity"]}}</p>-->
+<!--            {% endfor %}-->
+<!--            <h5 class="card-title">Total: 0</h5>-->
+<!--            <a href="#" class="card-link">Card link</a>-->
+<!--            <a href="#" class="card-link">Another link</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Order owner</th>
+      <th scope="col">Order items</th>
+        <th scope="col">Order total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders_list%}
+      <tr>
+      <th scope="row">*</th>
+        <td>{{order["id"]}}</td>
+        <td>
+           {%for x in order["products"] %}
+                <p class="card-text">Item: {{x["product"]}} * {{x["quantity"]}}</p>
+            {% endfor %}
+        </td>
+        <td>0</td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+{% endblock %}
